@@ -1,0 +1,10 @@
+main{
+    padding-top: 80px;
+    background: url(https://pizzium.com/wp-content/uploads/elementor/thumbs/banner-homepage-pjfyfn2lqec4al35lrajz57jmcosnp51ttkjo78th6.png) top no-repeat;
+    
+    #table{
+        cursor: pointer;
+        background-color: rgba($color: #ffff, $alpha: 0.8);
+        --bs-table-bg: rgba(0, 0, 0, 0);
+    }
+}
