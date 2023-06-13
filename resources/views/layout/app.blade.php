@@ -9,7 +9,7 @@
 </head>
 <body>
     @include('partials.header')
-    <main>
+    <main class="container-fluid">
         @yield('content')
     </main>
     @include('partials.footer')
