@@ -1,3 +1,3 @@
 <footer>
-    <span>&copy; by Andrea</span>
+    <span>&copy; by Team-1</span>
 </footer>
