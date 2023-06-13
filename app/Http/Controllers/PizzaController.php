@@ -8,6 +8,7 @@ use App\Models\Pizza;
 class PizzaController extends Controller
 {
     public function getPizza(){
-        return view('pages.home');
+        $pizzas = Pizza::All();
+        return view('pages.home', compact('pizzas'));
     }
 }
