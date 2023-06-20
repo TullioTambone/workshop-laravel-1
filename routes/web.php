@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PizzaController as PizzaController;
+use App\Http\Controllers\CrudController;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,3 +16,5 @@ use App\Http\Controllers\PizzaController as PizzaController;
 */
 
 Route::get('/', [PizzaController::class, 'getPizza']);
+
+Route::resource('/', CrudController::class);
