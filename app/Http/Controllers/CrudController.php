@@ -14,7 +14,7 @@ class CrudController extends Controller
      */
     public function index()
     {
-        $Pizzas = Pizza::all();  
+        $Pizzas = Pizza::all();
         return view('pages.crud.index', compact('Pizzas'));
     }
 
@@ -36,22 +36,22 @@ class CrudController extends Controller
      */
     public function store(Request $request)
     {
-        $request -> validate(
+        $request->validate(
             [
                 "name" => "required"
             ],
             [
                 "name.required" => 'il nome é obbligatorio'
-            ]      
+            ]
         );
 
-        $form_data=$request->all();
+        $form_data = $request->all();
 
         $newpizza = new Pizza();
 
-        $newpizza -> fill($form_data);
+        $newpizza->fill($form_data);
 
-        $newpizza -> save();
+        $newpizza->save();
 
         return redirect()->route('pages.index');
     }
@@ -74,7 +74,7 @@ class CrudController extends Controller
      * @param  \App\Models\sr  $sr
      * @return \Illuminate\Http\Response
      */
-    public function edit(sr $sr)
+    public function edit()
     {
         //
     }
@@ -86,7 +86,7 @@ class CrudController extends Controller
      * @param  \App\Models\sr  $sr
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, sr $sr)
+    public function update(Request $request)
     {
         //
     }
@@ -97,8 +97,11 @@ class CrudController extends Controller
      * @param  \App\Models\sr  $sr
      * @return \Illuminate\Http\Response
      */
-    public function destroy(sr $sr)
+    public function destroy($id)
     {
-        //
+
+        Pizza::findOrFail($id)->delete();
+
+        return redirect()->route('pages.index');
     }
 }

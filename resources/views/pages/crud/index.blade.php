@@ -12,9 +12,17 @@
 
         </a>
 
+        <form action="{{ route('pages.destroy', $element) }}" method="POST" onsubmit="return confirm('Are you sure you want to delete this pizza?')">
+            @csrf
+            @method('DELETE')
+            <button type="submit" class="btn btn-danger">Elimina</button>
+        </form>
+
+
         @endforeach
-        
+
     </ul>
+
 
 </div>
 @endsection
