@@ -25,7 +25,7 @@ class CrudController extends Controller
      */
     public function create()
     {
-        //
+        return view('pages.crud.create');
     }
 
     /**
@@ -36,7 +36,24 @@ class CrudController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request -> validate(
+            [
+                "name" => "required"
+            ],
+            [
+                "name.required" => 'il nome é obbligatorio'
+            ]      
+        );
+
+        $form_data=$request->all();
+
+        $newpizza = new Pizza();
+
+        $newpizza -> fill($form_data);
+
+        $newpizza -> save();
+
+        return redirect()->route('pages.index');
     }
 
     /**

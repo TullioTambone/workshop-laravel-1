@@ -9,4 +9,6 @@ class Pizza extends Model
 {
     use HasFactory;
     protected $table = 'pizzas';
+
+    protected $fillable = ['name','type','hydration','price','ingredients','flour_type'];
 }
