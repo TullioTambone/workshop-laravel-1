@@ -17,7 +17,7 @@
             @method('DELETE')
             <button type="submit" class="btn btn-danger">Elimina</button>
         </form>
-
+        <a href="{{ route('pages.edit', $element) }}" class="btn btn-primary">modifica pizza</a>
 
         @endforeach
 

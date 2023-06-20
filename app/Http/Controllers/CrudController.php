@@ -74,9 +74,10 @@ class CrudController extends Controller
      * @param  \App\Models\sr  $sr
      * @return \Illuminate\Http\Response
      */
-    public function edit()
+    public function edit(Pizza $pizza)
     {
-        //
+
+        return view('pages.crud.edit', compact('pizza'));
     }
 
     /**
@@ -86,9 +87,21 @@ class CrudController extends Controller
      * @param  \App\Models\sr  $sr
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request)
+    public function update(Request $request, $id)
     {
-        //
+        $request->validate(
+            [
+                "name" => "required"
+            ],
+            [
+                "name.required" => 'il nome é obbligatorio'
+            ]
+        );
+
+        $form_data = $request->all();
+        $my_pizza = Pizza::findOrFail($id);
+        $my_pizza->update($form_data);
+        return redirect()->route('pages.index');
     }
 
     /**
