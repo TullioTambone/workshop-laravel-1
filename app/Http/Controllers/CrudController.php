@@ -14,8 +14,8 @@ class CrudController extends Controller
      */
     public function index()
     {
-        $NomePizza = Pizza::all();  
-        return view();
+        $Pizzas = Pizza::all();  
+        return view('pages.crud.index', compact('Pizzas'));
     }
 
     /**
@@ -45,9 +45,10 @@ class CrudController extends Controller
      * @param  \App\Models\sr  $sr
      * @return \Illuminate\Http\Response
      */
-    public function show(sr $sr)
+    public function show($id)
     {
-        //
+        $singolaPizza = Pizza::findOrFail($id);
+        return view('pages.crud.show', compact('singolaPizza'));
     }
 
     /**

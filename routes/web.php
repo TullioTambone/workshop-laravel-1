@@ -17,4 +17,4 @@ use App\Http\Controllers\CrudController;
 
 Route::get('/', [PizzaController::class, 'getPizza']);
 
-Route::resource('/', CrudController::class);
+Route::resource('/pages', CrudController::class);

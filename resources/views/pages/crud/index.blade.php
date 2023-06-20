@@ -6,9 +6,11 @@
     <h1>NOMI PIZZE Special sto scherzando va benissimo cosi </h1>
 
     <ul>
-        @foreach($pizzas as $key => $element)
+        @foreach($Pizzas as $element)
+        <a href="{{route('pages.show', [$element->id])}}">
+            <li>{{ $element['name'] }}</li>
 
-        <li>{{ $element['name'] }}</li>
+        </a>
 
         @endforeach
     </ul>
