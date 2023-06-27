@@ -30,15 +30,22 @@
         </div>
 
         <div class="form-group mb-3">
-            <label for="pizza-ingredients" class="form-label">ingredients</label>
-            <input type="text" id="pizza-ingredients" name="ingredients" class="form-control">
-        </div>
-
-        <div class="form-group mb-3">
             <label for="pizza-flour_type" class="form-label">flour_type</label>
             <input type="text" id="pizza-flour_type" name="flour_type" class="form-control">
         </div>
 
+        <div class="form-group">
+            @foreach ($ingredients as $e)
+                <div class="form-check">
+                    <input type="checkbox" 
+                    class="form-check-input" 
+                    name="ingredients[]" 
+                    value="{{ $e->id }}" id="pizza-check-{{ $e->id }}">
+
+                    <label for="pizza-check-{{ $e->id }}" class="form-check-label">{{ $e->nome }}</label>
+                </div>
+            @endforeach
+        </div>
         <button type="submit" class="btn btn-success">Crea pizza</button>
 </div>
 @endsection

@@ -22,7 +22,6 @@ class PizzasTableSeeder extends Seeder
             $newPizza->type = $faker->randomElement(['Ruota di carro','Contemporanea','romana', 'Alla pala','In teglia']);
             $newPizza->hydration = $faker->numberBetween(60, 100);
             $newPizza->price = $faker->numberBetween(4, 12);
-            $newPizza->ingredients = $faker->randomElement(['Mozzarella', 'Salsa di pomodoro', 'Funghi', 'Salame', 'Carciofi', 'Olive']);
             $newPizza->flour_type = $faker->randomElement(['Tipo 00', 'Tipo 1', 'Tipo 2', 'Integrale', 'Senatore cappelli', 'Kamut']);
             $newPizza->save();
         }
