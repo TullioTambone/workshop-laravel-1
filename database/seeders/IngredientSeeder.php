@@ -4,7 +4,7 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
-use App\Model\Ingredient;
+use App\Models\Ingredient;
 
 class IngredientSeeder extends Seeder
 {
@@ -30,7 +30,7 @@ class IngredientSeeder extends Seeder
         
         foreach ($ingredients as $elem) {
             $new_ingredient = new Ingredient();
-            $new_ingredient->name = $elem;
+            $new_ingredient->nome = $elem;
             $new_ingredient->save();
         }
     }

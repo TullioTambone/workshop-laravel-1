@@ -19,7 +19,6 @@ return new class extends Migration
             $table->string('type', 30);
             $table->tinyInteger('hydration');
             $table->tinyInteger('price');
-            $table->string('ingredients', 40);
             $table->string('flour_type');
             $table->timestamps();
         });

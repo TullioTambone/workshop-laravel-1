@@ -10,7 +10,7 @@ class Ingredient extends Model
     use HasFactory;
 
     protected $table = 'Ingredients';
-    protected $fillable = ['name'];
+    protected $fillable = ['nome'];
 
     public function pizzas(){
         return $this->belongsToMany(Pizza::class);
