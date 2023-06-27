@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Pizza;
+use App\Models\Ingredient;
 use Illuminate\Http\Request;
 
 class CrudController extends Controller
@@ -25,7 +26,8 @@ class CrudController extends Controller
      */
     public function create()
     {
-        return view('pages.crud.create');
+        $ingredients = Ingredient::all();
+        return view('pages.crud.create', compact('ingredients'));
     }
 
     /**
@@ -38,7 +40,8 @@ class CrudController extends Controller
     {
         $request->validate(
             [
-                "name" => "required"
+                "name" => "required",
+                'ingredients' => 'exists:ingredients,id'
             ],
             [
                 "name.required" => 'il nome é obbligatorio'
@@ -53,6 +56,10 @@ class CrudController extends Controller
 
         $newpizza->save();
 
+        if($request->has('ingredients')){
+            $newpizza->ingredients()->attach($request->ingredients);
+        }
+
         return redirect()->route('pages.index');
     }
 
@@ -65,6 +72,7 @@ class CrudController extends Controller
     public function show($id)
     {
         $singolaPizza = Pizza::findOrFail($id);
+        
         return view('pages.crud.show', compact('singolaPizza'));
     }
 
