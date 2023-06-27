@@ -12,7 +12,8 @@
             <h6 class="card-subtitle mb-2 text-body-secondary">{{ $singolaPizza->type }}</h6>
             <p class="card-text">Percentuale idratazione {{ $singolaPizza->hydration }}%</p>
             <p> Prezzo {{ $singolaPizza->price }}$</p>
-            <a href="#" class="card-link">Modifica</a>
+
+            <a href="" class="card-link">Modifica</a>
             <form action="{{ route('pages.destroy', $singolaPizza) }}" method="POST" onsubmit="return confirm('Are you sure you want to delete this pizza?')">
                 @csrf
                 @method('DELETE')

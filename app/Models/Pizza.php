@@ -11,4 +11,8 @@ class Pizza extends Model
     protected $table = 'pizzas';
 
     protected $fillable = ['name','type','hydration','price','ingredients','flour_type'];
+
+    public function ingredients(){
+        return $this->belongsToMany(Ingredient::class);
+    }
 }

@@ -76,7 +76,7 @@ class CrudController extends Controller
      */
     public function edit(Pizza $pizza)
     {
-
+        
         return view('pages.crud.edit', compact('pizza'));
     }
 
